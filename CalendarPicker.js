@@ -160,7 +160,7 @@ var WeekDaysLabels = React.createClass({
   render() {
     return (
       <View style={styles.dayLabelsWrapper}>
-        { WEEKDAYS.map((day, key) => { return <Text key={key} style={styles.dayLabels}>{day}</Text> }) }
+        { this.props.labels.map((day, key) => { return <Text key={key} style={styles.dayLabels}>{day}</Text> }) }
       </View>
     );
   }
@@ -208,11 +208,12 @@ var HeaderControls = React.createClass({
   },
 
   render() {
+    MONTHS = this.props.configure.MONTHS ? this.props.configure.MONTHS : MONTHS;
     return (
       <View style={styles.headerWrapper}>
         <View style={styles.monthSelector}>
           <TouchableOpacity onPress={this.getPrevious}>
-            <Text style={styles.prev}>Previous</Text>
+            <Text style={styles.prev}>{ this.props.configure.PREV_LABEL || 'Previous' }</Text>
           </TouchableOpacity>
         </View>
         <View>
@@ -222,7 +223,7 @@ var HeaderControls = React.createClass({
         </View>
         <View style={styles.monthSelector}>
           <TouchableOpacity onPress={this.getNext}>
-            <Text style={styles.next}>Next</Text>
+            <Text style={styles.next}>{ this.props.configure.NEXT_LABEL || 'Next' }</Text>
           </TouchableOpacity>
         </View>
 
@@ -291,9 +292,10 @@ var CalendarPicker = React.createClass({
           month={this.state.month}
           onMonthChange={this.onMonthChange}
           getNextYear={this.getNextYear}
-          getPrevYear={this.getPrevYear} />
+          getPrevYear={this.getPrevYear}
+          configure={this.props.configure || {}} />
 
-        <WeekDaysLabels />
+        <WeekDaysLabels labels={ this.props.configure && this.props.configure.WEEKDAYS ? this.props.configure.WEEKDAYS : WEEKDAYS } />
 
         <Days
           month={this.state.month}
