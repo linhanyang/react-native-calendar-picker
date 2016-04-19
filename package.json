@@ -1,0 +1,35 @@
+{
+  "name": "react-native-calendar-picker",
+  "version": "1.0.2",
+  "description": "Calendar Picker Component for React Native",
+  "main": "CalendarPicker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linhanyang/react-native-calendar-picker.git"
+  },
+  "keywords": [
+    "calendar",
+    "picker",
+    "calendar",
+    "picker",
+    "date",
+    "picker",
+    "day",
+    "picker"
+  ],
+  "author": {
+    "name": "Stephani Alves",
+    "email": "alves@stephanimoroni.com"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/linhanyang/react-native-calendar-picker",
+  "maintainers": [
+    {
+      "name": "stephy",
+      "email": "alves@stephanimoroni.com"
+    }
+  ]
+}
